@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "certificate-generator"
+version = "0.1.0"
+description = "A simple application for generating certificates based on a given template."
+authors = ["Antony Nyagah <tony.m.nyagah@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.110.0"
+uvicorn = "^0.28.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.3.0"
+ruff = "^0.3.3"
+pytest = "^8.1.1"
+commitizen = "^3.18.4"
+pre-commit = "^3.6.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

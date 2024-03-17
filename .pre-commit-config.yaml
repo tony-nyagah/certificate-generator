@@ -1,0 +1,38 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-toml
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/psf/black
+    rev: 24.3.0
+    hooks:
+      - id: black
+        exclude: 'migrations/.*|tests/.*\.py'
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        name: isort (python)
+        exclude: 'migrations/.*'
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.3
+    hooks:
+      - id: ruff
+        exclude: 'migrations/.*|^vendor/.*'
+        args: ['--fix', '--exit-non-zero-on-fix', '--line-length=130', '--ignore=E402']
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.18.4
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages: [push]
